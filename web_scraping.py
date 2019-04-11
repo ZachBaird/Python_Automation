@@ -12,6 +12,7 @@
 
 import requests
 import bs4
+from selenium import webdriver
 
 
 def basicBrowserOpen():
@@ -35,7 +36,21 @@ def requestsSaveFileLocally():
     playFile.close()
 
 
-def noStarch():
-    res = requests.get('http://nostarch.com')
-    res.raise_for_status()
-    noStarchSoup = bs4.BeautifulSoup(res.text)
+def seleniumBrowser():
+    browser = webdriver.Firefox()
+    #browser = webdriver.Chrome()
+    print(type(browser))
+    browser.get('http://inventwithpython.com')
+
+
+def seleniumBookSearch(tag_search):
+    browser = webdriver.Firefox()
+    browser.get('http://inventwithpython.com')
+    try:
+        elem = browser.find_element_by_class_name(tag_search)
+        print('Found <%s> element with that class name!' % (elem.tag_name))
+    except:
+        print('Was not able to find an element with that name.')
+
+
+seleniumBookSearch('cover-thumb')
