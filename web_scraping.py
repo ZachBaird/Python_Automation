@@ -13,6 +13,7 @@
 import requests
 import bs4
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 
 
 def basicBrowserOpen():
@@ -53,4 +54,23 @@ def seleniumBookSearch(tag_search):
         print('Was not able to find an element with that name.')
 
 
-seleniumBookSearch('cover-thumb')
+def seleniumTestBrowse(url, link_text):
+    browser = webdriver.Firefox()
+    browser.get(url)
+
+    linkElems = browser.find_elements_by_link_text(link_text)
+
+    linkElem = linkElems[9]
+    linkElem.click()
+
+
+def seleniumTestForm(url, link_text):
+    browser = webdriver.Firefox()
+    browser.get(url)
+
+    linkElems = browser.find_elements_by_link_text(link_text)
+    linkElem = linkElems[9]
+    linkElem.click()
+
+    # firstElem = browser.find_element_by_id(id here)
+    #firstElem.send_keys('John Doe')
