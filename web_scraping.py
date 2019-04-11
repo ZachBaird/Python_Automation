@@ -73,4 +73,13 @@ def seleniumTestForm(url, link_text):
     linkElem.click()
 
     # firstElem = browser.find_element_by_id(id here)
-    #firstElem.send_keys('John Doe')
+    # firstElem.send_keys('John Doe')
+
+
+def seleniumSpecialKeys():
+    browser = webdriver.Firefox()
+    browser.get('http://nostarch.com')
+    htmlElem = browser.find_element_by_tag_name('html')
+    htmlElem.send_keys(Keys.END)
+
+    # htmlElem.send_keys(Keys.HOME)
