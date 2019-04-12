@@ -83,3 +83,5 @@ def seleniumSpecialKeys():
     htmlElem.send_keys(Keys.END)
 
     # htmlElem.send_keys(Keys.HOME)
+
+
